@@ -1,0 +1,7 @@
+#!/bin/bash
+# Start a Claude Code "hub" session that watches Claude Science and pushes to your phone.
+# Keeps the Mac awake (caffeinate) for as long as the hub runs.
+# Then, inside the session, run /remote-control and open it from the Claude app.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec caffeinate -is claude "/science-hub"

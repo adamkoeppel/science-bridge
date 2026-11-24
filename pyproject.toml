@@ -1,0 +1,25 @@
+[project]
+name = "science-bridge"
+version = "0.1.0"
+description = "Drive and monitor Claude Science from Claude Code (and so from your phone via Remote Control)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.2,<2"]
+
+[project.scripts]
+scb = "science_bridge.cli:main"
+scb-mcp = "science_bridge.mcp_server:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/science_bridge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
